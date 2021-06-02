@@ -1,4 +1,4 @@
-## UI automation testing for https://ittest-team.ru/
+## UI automation testing for https://irlix.com/
 
 #### *Quick project example with infrastructure: Selenide UI tests with Allure report, remote run on Selenoid and push notifications to Telegram*
 
@@ -27,7 +27,7 @@
 ![Video](images/Video.gif)
 
 ### Jenkins
-https://jenkins.autotests.cloud/job/ITtest/
+https://jenkins.autotests.cloud/job/IRLIX/
 ![Jenkins](images/Jenkins.png)
 
 ### Telegram
