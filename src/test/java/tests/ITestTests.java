@@ -1,12 +1,11 @@
 package tests;
 
 
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byLinkText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -18,28 +17,20 @@ public class ITestTests extends TestBase {
     @Test
     void successfulFillFormTest() {
         step("Open Website", () -> {
-            open("https://ittest-team.ru/");
+            open("https://irlix.com/");
         });
-        step(" Check Development", () -> {
-            $(byText("Подробнее")).click();
-            $("h1").shouldHave(text("Разработка"));
-        });
-        step(" Check About", () -> {
-            $(byText("О нас")).click();
-            $(".content-wrapper__title").shouldHave(text("о компании"));
-        });
-        step(" Check Download", () -> {
-            $(".btn.view-presentation").download();
-            FileUtils.deleteDirectory(new File("./downloads"));
-        });
-        step(" Check Testing", () -> {
-            $("#menu-item-29").click();
-            $(byText("Тестирование")).click();
-            $("h1").shouldHave(text("тестирование"));
+        step(" Check Menu", () -> {
+            $(byText("МЕНЮ")).click();
+            $("a.footer-cta").shouldHave(text("Связаться с нами"));
         });
         step(" Check Contacts", () -> {
-            $(byText("Контакты")).click();
-            $(".info-contacts-links").shouldHave(text("+7 (4872) 52-59-50"));
+            $(byLinkText("Контакты")).click();
+            $("h2").shouldHave(text("Свяжитесь с нами!"));
+        });
+        step(" Check Career", () -> {
+            $(byText("МЕНЮ")).click();
+            $(byLinkText("Вакансии")).click();
+            $("h2").shouldHave(text("Новые продукты с интересными людьми?"));
         });
     }
 }
